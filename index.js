@@ -37,7 +37,6 @@ app.get('/github/:repoName', async(req,res)=>{
   try {
     const { repoName } = req.params
     const userResponse = await axios.get(`${process.env.GITHUB_API_URL}/repos/${process.env.GITHUB_USERNAME}/${repoName}`, { headers });
-    console.log(req.params)
     res.status(200).json(userResponse.data)
   } catch (error) {
     res.status(500).json({ error: error.message });
